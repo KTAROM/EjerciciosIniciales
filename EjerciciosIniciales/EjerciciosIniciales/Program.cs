@@ -13,14 +13,15 @@ namespace EjerciciosIniciales
             //Ejercicios Iniciales 1
             int num = 1;
             string imprimir = "";
-            for (num = 1; num <= 465; num++)
+           for (num = 1; num <= 465; num++)
             {
                 imprimir += num;
-                if(num%5==0 && num%3==0)
+                if (num % 5 == 0 && num % 3 == 0)
                 {
                     imprimir += "FooBar";
                 }
-                else { 
+                else
+                {
                     if (num % 3 == 0)
                     { imprimir += "Foo"; }
                     else
@@ -33,9 +34,40 @@ namespace EjerciciosIniciales
             }
             Console.WriteLine(imprimir);
             Console.ReadKey();
-        
+            //Ejercicios inciales 2
 
+           num = 1;
+            imprimir = "";
+            for (num = 1; num <= 465; num++)
+            {
+                imprimir += num;
+                if (num % 3 == 0)
+                {
+                    imprimir += " es divisible por 3";
+                }
 
+                else
+                {
+                    int prueba = 1;
+                    int div = num-1;
+
+                    while (prueba > 0 && div > 1)
+                    {
+                        prueba = num % div;
+                        div -= 1;
+                        
+                    }
+                    if (prueba != 0)
+                    {
+                        imprimir += " es primo";
+                    }
+
+                }
+                imprimir += "\n";
+            }
+            Console.WriteLine(imprimir);
+            Console.ReadKey();
         }
     }
 }
+   
