@@ -13,80 +13,80 @@ namespace EjerciciosIniciales
             //Ejercicios Iniciales 1
             int num = 1;
             string imprimir = "";
+           /* for (num = 1; num <= 465; num++)
+            {
+                imprimir += num;
+                if (num % 5 == 0 && num % 3 == 0)
+                {
+                    imprimir += "FooBar";
+                }
+                else
+                {
+                    if (num % 3 == 0)
+                    { imprimir += "Foo"; }
+                    else
+                    {
+                        if (num % 5 == 0)
+                            imprimir += "Bar";
+                    }
+                }
+                imprimir += "\n";
+            }
+            Console.WriteLine(imprimir);
+            Console.ReadKey();
+            //Ejercicios inciales 2
+
+            num = 1;
+            imprimir = "";
             for (num = 1; num <= 465; num++)
-             {
-                 imprimir += num;
-                 if (num % 5 == 0 && num % 3 == 0)
-                 {
-                     imprimir += "FooBar";
-                 }
-                 else
-                 {
-                     if (num % 3 == 0)
-                     { imprimir += "Foo"; }
-                     else
-                     {
-                         if (num % 5 == 0)
-                             imprimir += "Bar";
-                     }
-                 }
-                 imprimir += "\n";
-             }
-             Console.WriteLine(imprimir);
-             Console.ReadKey();
-             //Ejercicios inciales 2
+            {
+                imprimir += num;
+                if (num % 3 == 0)
+                {
+                    imprimir += " es divisible por 3";
+                }
 
-             num = 1;
-             imprimir = "";
-             for (num = 1; num <= 465; num++)
-             {
-                 imprimir += num;
-                 if (num % 3 == 0)
-                 {
-                     imprimir += " es divisible por 3";
-                 }
+                else
+                {
+                    int prueba = 1;
+                    int div = num - 1;
 
-                 else
-                 {
-                     int prueba = 1;
-                     int div = num - 1;
+                    while (prueba > 0 && div > 1)
+                    {
+                        prueba = num % div;
+                        div -= 1;
 
-                     while (prueba > 0 && div > 1)
-                     {
-                         prueba = num % div;
-                         div -= 1;
+                    }
+                    if (prueba != 0)
+                    {
+                        imprimir += " es primo";
+                    }
 
-                     }
-                     if (prueba != 0)
-                     {
-                         imprimir += " es primo";
-                     }
+                }
+                imprimir += "\n";
+            }
+            Console.WriteLine(imprimir);
+            Console.ReadKey();
 
-                 }
-                 imprimir += "\n";
-             }
-             Console.WriteLine(imprimir);
-             Console.ReadKey();
+            // Ejercicio 3
 
-             // Ejercicio 3
+            Console.WriteLine("Ingrese una palabra");
+            string palabra = Console.ReadLine();
+            int cantlet = palabra.Length;
+            int d = cantlet - 1;
 
-             Console.WriteLine("Ingrese una palabra");
-             string palabra = Console.ReadLine();
-             int cantlet = palabra.Length;
-             int d = cantlet-1;
+            char[] letras = new char[cantlet];
+            for (int i = 0; i < cantlet; i++)
+            {
+                letras[i] = palabra[d];
+                d -= 1;
 
-             char[] letras = new char[cantlet];
-             for ( int i=0; i<cantlet; i++)
-             {                
-                 letras[i] = palabra[d];
-                 d -= 1;
+            }
 
-             }
-
-             string palabra2 = new string(letras);
-             if(palabra==palabra2)
-             { Console.WriteLine("Es palíndromo"); }
-             Console.ReadKey();
+            string palabra2 = new string(letras);
+            if (palabra == palabra2)
+            { Console.WriteLine("Es palíndromo"); }
+            Console.ReadKey();
 
             // Ejercicio 4
 
@@ -101,12 +101,22 @@ namespace EjerciciosIniciales
                 char[] pal2 = Armarchar(palabra2);
                 palabra1 = Ordenar(palabra1, pal);
                 palabra2 = Ordenar(palabra2, pal2);
-                if(palabra1==palabra2)
+                if (palabra1 == palabra2)
                 {
-                  Console.WriteLine("Son anagramas");
+                    Console.WriteLine("Son anagramas");
                 }
                 else { Console.WriteLine("No son anagramas"); }
-            }
+            }*/
+
+
+            //Ejercicio 5
+            Console.WriteLine("Escriba un número de 5 cifras");
+            string numero = Console.ReadLine();
+           char[] numero1= Armarchar(numero);
+            numero1 = (OrdenarNum(numero1));
+            numero = new string(numero1);
+            int num1 = int.Parse(numero);
+            Console.WriteLine("El número invertido es: "+num1);
 
             Console.ReadKey();
         }
@@ -141,6 +151,27 @@ namespace EjerciciosIniciales
             string palordenada = new string(pal);
             return palordenada;
         }
+        
+       public static char[] OrdenarNum(char[]num)
+        {
+            int j = num.Length - 1;
+            int i = 0;
+           while (i<j)
+            {
+                do
+                {
+                    char aux = num[i];
+                    num[i] = num[j];
+                    num[j] = aux;
+                    i += 1;
+                    j -= 1;
+                } while (i > j);
+            } 
+
+            return num;
+        }
+        
     }
 }
+
     
