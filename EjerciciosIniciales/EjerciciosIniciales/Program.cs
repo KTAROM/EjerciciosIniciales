@@ -123,7 +123,7 @@ namespace EjerciciosIniciales
             int num1 = int.Parse(Console.ReadLine());
             Console.WriteLine("Ingrese el segundo número");
             int num2 = int.Parse(Console.ReadLine());
-            Console.WriteLine((num1 + num2) * (num1 - num2));*/
+            Console.WriteLine((num1 + num2) * (num1 - num2));
 
             // Ejercicio 7
 
@@ -138,7 +138,20 @@ namespace EjerciciosIniciales
             numero = Ordenar2(numero);
             int medio = numero[2];
             Console.WriteLine("El número máximo es " + maximo + "\n" + "El número intermedio es " + medio + "\n" + "El número mínimo es " + minimo);
-           
+            
+            //Ejercicio 8
+
+            Console.WriteLine("Ingrese una fecha");
+            DateTime fecha = DateTime.Parse(Console.ReadLine());
+            DateTime hoy = DateTime.Now;
+            Console.WriteLine(fecha);
+            Console.WriteLine(hoy);
+           int diferencia = (hoy - fecha).Days;
+            Console.WriteLine("La diferencia de fecha es de " + diferencia + " días");
+            */
+
+            //Ejercicio 9
+
             Console.ReadKey();
 
         }
