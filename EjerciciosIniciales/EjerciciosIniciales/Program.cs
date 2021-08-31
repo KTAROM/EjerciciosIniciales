@@ -148,10 +148,21 @@ namespace EjerciciosIniciales
             Console.WriteLine(hoy);
            int diferencia = (hoy - fecha).Days;
             Console.WriteLine("La diferencia de fecha es de " + diferencia + " días");
-            */
-
+            
             //Ejercicio 9
+            Console.WriteLine("Ingrese su nombre");
+            string usuario1 = "Romina";
+            string usuario = Console.ReadLine();
+            ValidarUsuario(usuario,usuario1);*/
 
+            // Ejercicio 10
+
+           Caracter();
+            string car = Console.ReadLine().ToUpper();
+          
+            Verificar(car);
+            
+            
             Console.ReadKey();
 
         }
@@ -220,7 +231,7 @@ namespace EjerciciosIniciales
                 }
             }
             return max;
-            
+
 
 
         }
@@ -256,10 +267,49 @@ namespace EjerciciosIniciales
                         num[i + 1] = aux;
                     }
                 }
-            }            
+            }
             return num;
         }
+       static void ValidarUsuario (string usuario, string usuario1)
+        {
+            if(usuario!=usuario1)
+            {
+                Console.WriteLine("No te conozco");
+            }
+            else
+            {
+                Console.WriteLine("Hola, " + usuario + "!");
+            }
+        }
+       
+        public static void Caracter()
+        {
+            Console.WriteLine("Ingrese un caracter");
+        }
+        static void Verificar(string car)
+        {
+            int num;
+
+            bool Esnum = int.TryParse(car, out num);
+            if (Esnum)
+            {
+                Console.WriteLine("El valor ingresado es una cifra númerica");
+            }
+           else
+            {
+                if (car=="A" || car=="E" || car=="I" || car=="O" || car=="U")
+                {
+                    Console.WriteLine("El valor ingresado es una vocal");
+                }
+                else
+                {
+                    Console.Write("El valor ingreso es una consonante");
+                }
+            }
+
+        }
     }
+
 }
 
     
