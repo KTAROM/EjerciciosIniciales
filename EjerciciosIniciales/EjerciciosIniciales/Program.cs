@@ -153,16 +153,47 @@ namespace EjerciciosIniciales
             Console.WriteLine("Ingrese su nombre");
             string usuario1 = "Romina";
             string usuario = Console.ReadLine();
-            ValidarUsuario(usuario,usuario1);*/
+            ValidarUsuario(usuario,usuario1);
 
             // Ejercicio 10
 
            Caracter();
             string car = Console.ReadLine().ToUpper();
           
-            Verificar(car);
+            Verificar(car);*/
+
+            // Ejercicio 11
+            Console.WriteLine("Ingrese Nombre, Apellido y edad");
+            string datos = Console.ReadLine();
+            string[] separar = datos.Split(' ');
+            string nombre;
+            string apellido;
+            int edad = 0;
+            int d = 0;
+            string[] nombres = new string[2];
+
+           for(int i=0; i<3;i++)
+            {
+                bool esnum = Esnum(separar[i]);
+                if(esnum)
+                {
+                    edad = int.Parse(separar[i]);
+                }
+                else
+                {
+                   
+                    nombres[d] = separar[i];
+                    d += 1;
+                }
+              
+            }
             
-            
+            Console.WriteLine("Edad: " + edad +", Nombre: " + nombres[0] + ", Apellido: " + nombres[1]);
+
+
+
+
+
             Console.ReadKey();
 
         }
@@ -295,9 +326,9 @@ namespace EjerciciosIniciales
             {
                 Console.WriteLine("El valor ingresado es una cifra númerica");
             }
-           else
+            else
             {
-                if (car=="A" || car=="E" || car=="I" || car=="O" || car=="U")
+                if (car == "A" || car == "E" || car == "I" || car == "O" || car == "U")
                 {
                     Console.WriteLine("El valor ingresado es una vocal");
                 }
@@ -306,10 +337,19 @@ namespace EjerciciosIniciales
                     Console.Write("El valor ingreso es una consonante");
                 }
             }
+        }
+
+            public static bool Esnum(string valor)
+            {
+                int num;
+
+                bool Esnum = int.TryParse(valor, out num);
+                return Esnum;
+            }
 
         }
     }
 
-}
+
 
     
