@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace EjerciciosIniciales
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //Ejercicios Iniciales 1
+            //Ejercicios Iniciales 1: Multiplos
             int num = 1;
             string imprimir = "";
             /* for (num = 1; num <= 465; num++)
@@ -34,7 +35,8 @@ namespace EjerciciosIniciales
              }
              Console.WriteLine(imprimir);
              Console.ReadKey();
-             //Ejercicios inciales 2
+
+             //Ejercicios inciales 2: Números Primos
 
              num = 1;
              imprimir = "";
@@ -68,7 +70,7 @@ namespace EjerciciosIniciales
              Console.WriteLine(imprimir);
              Console.ReadKey();
 
-             // Ejercicio 3
+             // Ejercicio 3: Palíndromo
 
              Console.WriteLine("Ingrese una palabra");
              string palabra = Console.ReadLine();
@@ -88,7 +90,7 @@ namespace EjerciciosIniciales
              { Console.WriteLine("Es palíndromo"); }
              Console.ReadKey();
 
-             // Ejercicio 4
+             // Ejercicio 4: Anagrama
 
              Console.WriteLine("Escriba una palabra");
              string palabra1 = Console.ReadLine();
@@ -109,7 +111,7 @@ namespace EjerciciosIniciales
              }
 
 
-             //Ejercicio 5
+             //Ejercicio 5: Número Invertido
              Console.WriteLine("Escriba un número de 5 cifras");
              string numero = Console.ReadLine();
             char[] numero1= Armarchar(numero);
@@ -118,14 +120,14 @@ namespace EjerciciosIniciales
              int num1 = int.Parse(numero);
              Console.WriteLine("El número invertido es: "+num1);
 
-            // Ejercicio6
+            // Ejercicio 6: Cuentas
             Console.WriteLine("Ingrese el primer número");
             int num1 = int.Parse(Console.ReadLine());
             Console.WriteLine("Ingrese el segundo número");
             int num2 = int.Parse(Console.ReadLine());
             Console.WriteLine((num1 + num2) * (num1 - num2));
 
-            // Ejercicio 7
+            // Ejercicio 7: Máximo y mínimo
 
             int[] numero = new int[5];
             for (int i = 0; i < 5; i++)
@@ -139,7 +141,7 @@ namespace EjerciciosIniciales
             int medio = numero[2];
             Console.WriteLine("El número máximo es " + maximo + "\n" + "El número intermedio es " + medio + "\n" + "El número mínimo es " + minimo);
             
-            //Ejercicio 8
+            //Ejercicio 8: Diferencia hoy
 
             Console.WriteLine("Ingrese una fecha");
             DateTime fecha = DateTime.Parse(Console.ReadLine());
@@ -149,20 +151,21 @@ namespace EjerciciosIniciales
            int diferencia = (hoy - fecha).Days;
             Console.WriteLine("La diferencia de fecha es de " + diferencia + " días");
             
-            //Ejercicio 9
+            //Ejercicio 9: Nombre usuario
             Console.WriteLine("Ingrese su nombre");
             string usuario1 = "Romina";
             string usuario = Console.ReadLine();
             ValidarUsuario(usuario,usuario1);
 
-            // Ejercicio 10
+            // Ejercicio 10: Caracter
 
            Caracter();
             string car = Console.ReadLine().ToUpper();
           
-            Verificar(car);*/
+            Verificar(car);
 
-            // Ejercicio 11
+            // Ejercicio 11: Datos persona
+
             Console.WriteLine("Ingrese Nombre, Apellido y edad");
             string datos = Console.ReadLine();
             string[] separar = datos.Split(' ');
@@ -189,11 +192,134 @@ namespace EjerciciosIniciales
             }
             
             Console.WriteLine("Edad: " + edad +", Nombre: " + nombres[0] + ", Apellido: " + nombres[1]);
+            
+            // Ejercicio 12: Diferencia fechas
+           
+                Console.WriteLine("Ingrese una fecha");
+                DateTime fecha1 = DateTime.Parse(Console.ReadLine());
 
+            Console.WriteLine("Ingrese una fecha");
+            DateTime fecha2 = DateTime.Parse(Console.ReadLine());
+            int fecharesul = DateTime.Compare(fecha1, fecha2);
+            int años;
+            int meses;
+            int dias;
+          
+           if(fecharesul<0)
+            {
+                DateTime aux = fecha1;
+                fecha1 = fecha2;
+                fecha2 = aux;
+            }
+            
+            años = fecha1.Year - fecha2.Year;
+            meses = fecha1.Month - fecha2.Month;
 
+            if (fecha1.Month<fecha2.Month)
+            {
+                meses +=12;
+                años -= 1;
+            }
+            dias = fecha1.Day - fecha2.Day;
 
+                 if(fecha1.Day < fecha2.Day)
+            {
+                dias += DateTime.DaysInMonth(fecha1.Year, (fecha1.Month-1)); 
+                meses -= 1;
+            }
+            Console.WriteLine("La diferencia es de "+años+ " años, "+meses+" meses, "+dias+" días");
+            
+            //Ejercicio 13: Factorial
 
+            Console.WriteLine("Ingrese un número");
+            num = int.Parse(Console.ReadLine());
+            int factorial = 1;
+            for(int i=1; i<=num;i++)
+            {
+                factorial = factorial * i;
+            }
+            Console.WriteLine("El factorial de "+num+" es: "+factorial);
+            
+            //Ejercicio 14: Tabla multiplicar
 
+            Console.WriteLine("Ingrese un número");
+            num = int.Parse(Console.ReadLine());
+            int producto;
+            for(int i=1; i<=10;i++)
+            {
+                producto = i * num;
+                imprimir += (num + " X " + i + " = " + producto+"\n");
+            }
+            Console.WriteLine(imprimir);
+            
+
+            //Ejercicio 15:Clave
+            
+            string clave = "Romina";
+            string clave1;
+            int i = 0;
+            do
+            {
+                Console.WriteLine("Ingrese la clave de usuario");
+                clave1 = Console.ReadLine().ToUpper();
+                string compara = clave.ToUpper();
+                if (compara == clave1)
+                {
+                    Console.WriteLine("Bienvenido, " + clave);
+                    i = 3;
+                }
+                else
+                {
+                    
+                        i += 1;
+
+                    if(i==3)
+                    {
+                        Console.WriteLine("Clave bloqueada");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Acceso denegado. La contraseña no es correcta. ");
+                    }
+                }
+            } while (i < 3);
+            
+
+            // Ejercicio 16:Contar dígitos
+            Console.WriteLine("Ingrese un número");
+            string valor = Console.ReadLine();
+            int cant = valor.ToString().Length;
+
+            Console.WriteLine("Número ingresado: " + valor + " - Tiene " + cant + " dígitos");
+         
+            
+            // Ejercicio 17: Sueldo Mayor
+            string[,] Sueldos = new string[5, 2];
+            for (int i = 0; i < 5; i++)
+            {
+                int f = 0;
+                Console.WriteLine("Ingrese el nombre de un empleado");
+                Sueldos[i, f] = Console.ReadLine();
+                Console.WriteLine("Ahora ingrese su salario");
+                f += 1;
+                Sueldos[i, f] = Console.ReadLine();
+            }
+
+            int max = int.Parse(Sueldos[4, 1]);
+            int cont = 4;
+            for (int i = 0; i < 5; i++)
+            {
+                if (int.Parse(Sueldos[i, 1]) > max)
+                {
+                    max = int.Parse(Sueldos[i, 1]);
+                    cont = i;
+                }
+            }
+            Console.WriteLine("El mayor sueldo es: " + Sueldos[cont, 1] + " del empleado " + Sueldos[cont, 0]);
+            */
+
+            
+            
             Console.ReadKey();
 
         }
