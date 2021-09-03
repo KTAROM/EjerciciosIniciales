@@ -317,9 +317,18 @@ namespace EjerciciosIniciales
             }
             Console.WriteLine("El mayor sueldo es: " + Sueldos[cont, 1] + " del empleado " + Sueldos[cont, 0]);
             */
+            //Ejercicio 18: Conversion número
+            Console.WriteLine("Ingrese un número");
+            num = int.Parse(Console.ReadLine());
+            int div = 2;
+            imprimir = "Número original: " + num+"\n"+"Número binario: ";
+            imprimir += Convertir(num, div) + "\n" + "Número octal: ";
+            div = 8;
+            imprimir += Convertir(num, 8)+"\n"+"Número hexadecimal: ";
+           
+            imprimir += Convertir(num, 16);
+            Console.WriteLine(imprimir);
 
-            
-            
             Console.ReadKey();
 
         }
@@ -427,9 +436,9 @@ namespace EjerciciosIniciales
             }
             return num;
         }
-       static void ValidarUsuario (string usuario, string usuario1)
+        static void ValidarUsuario(string usuario, string usuario1)
         {
-            if(usuario!=usuario1)
+            if (usuario != usuario1)
             {
                 Console.WriteLine("No te conozco");
             }
@@ -438,7 +447,7 @@ namespace EjerciciosIniciales
                 Console.WriteLine("Hola, " + usuario + "!");
             }
         }
-       
+
         public static void Caracter()
         {
             Console.WriteLine("Ingrese un caracter");
@@ -465,16 +474,74 @@ namespace EjerciciosIniciales
             }
         }
 
-            public static bool Esnum(string valor)
-            {
-                int num;
+        public static bool Esnum(string valor)
+        {
+            int num;
 
-                bool Esnum = int.TryParse(valor, out num);
-                return Esnum;
+            bool Esnum = int.TryParse(valor, out num);
+            return Esnum;
+        }
+        public static string Convertir(int num, int div)
+        {
+            List<string> sistema = new List<string>();
+            string imprimir2 = "";
+            int resto;
+
+            do
+            {
+                resto = num % div;
+                if(resto>=10)
+                {
+                    sistema.Add(Hexa(resto));
+                }
+                else
+                {
+                    sistema.Add(resto.ToString());
+                }
+
+                num = num / div;
+
+
+            } while (num >= div);
+            if (num > 0)
+            { sistema.Add(num.ToString()); }
+            sistema.Reverse();
+            foreach (string c in sistema)
+            {
+                imprimir2 += c;
             }
+            return imprimir2;
+        }
+       public static string Hexa(int num)
+        {
+            string numero = "";
+            switch(num)
+            {
+                case 10:
+                    numero = "A";
+                        break;
+                case 11:
+                    numero = "B";
+                    break;
+                case 12:
+                    numero = "C";
+                    break;
+                case 13:
+                    numero = "D";
+                    break;
+                case 14:
+                    numero = "E";
+                    break;
+                case 15:
+                    numero = "F";
+                    break;
+            }
+           
+            return numero;
 
         }
     }
+}
 
 
 
