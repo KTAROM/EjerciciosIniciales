@@ -14,7 +14,7 @@ namespace EjerciciosIniciales
             //Ejercicios Iniciales 1: Multiplos
             int num = 1;
             string imprimir = "";
-            /* for (num = 1; num <= 465; num++)
+           /*  for (num = 1; num <= 465; num++)
              {
                  imprimir += num;
                  if (num % 5 == 0 && num % 3 == 0)
@@ -316,7 +316,7 @@ namespace EjerciciosIniciales
                 }
             }
             Console.WriteLine("El mayor sueldo es: " + Sueldos[cont, 1] + " del empleado " + Sueldos[cont, 0]);
-            */
+            
             //Ejercicio 18: Conversion número
             Console.WriteLine("Ingrese un número");
             num = int.Parse(Console.ReadLine());
@@ -328,9 +328,48 @@ namespace EjerciciosIniciales
            
             imprimir += Convertir(num, 16);
             Console.WriteLine(imprimir);
-
+            
+            //Ejercicio 19:Palabras
+            Console.WriteLine("Indique la cantidad de palabras que desea ingresar");
+           num = int.Parse(Console.ReadLine());
+            string[,] palabras = new string[num,2];
+       
+            
+            for (int i = 0; i < num; i++)
+            {
+                int c = i + 1;
+                Console.WriteLine("Ingrese la palabra " + c);
+                palabras[i,0] = Console.ReadLine();
+                string pal = palabras[i,0].ToString();
+                int cant = pal.Length;
+                palabras[i, 1] = cant.ToString();
+            }
+           for(int i=0;i<num;i++)
+            {
+                imprimir += palabras[i, 0] + " " + palabras[i, 1] + "\n";
+            }
+            Console.WriteLine(imprimir);
+            */
+            // Ejercicio 20:Primos y Factorial
+            Console.WriteLine("Ingrese un número");
+            num = int.Parse(Console.ReadLine());
+            
+            int contar = 0;
+            for(int i=2;i< num;i++)
+            {
+                if(primo(i))
+                {
+                    
+                    contar += 1;
+                }
+            }
+            int factorial = 1;
+            for (int i = 1; i <= num; i++)
+            {
+                factorial = factorial * i;
+            }
+            Console.WriteLine("Hasta el " + num + " hay " + contar + " números primos y el factorial de " + num + " es " + factorial);
             Console.ReadKey();
-
         }
 
         private static char[] Armarchar(string palabra)
@@ -539,6 +578,24 @@ namespace EjerciciosIniciales
            
             return numero;
 
+        }
+        public static bool primo(int num)
+        {
+            int prueba = 1;
+            int div = num - 1;
+            bool primo = false;
+
+                     while (prueba > 0 && div > 1)
+                     {
+                         prueba = num % div;
+                         div -= 1;
+
+                     }
+                     if (prueba != 0)
+                     {
+                primo = true;
+                     }
+            return primo;
         }
     }
 }
